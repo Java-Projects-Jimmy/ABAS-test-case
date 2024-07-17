@@ -26,7 +26,7 @@ public class OrderCounts {
         String result = "";
         int counter = 0;
         for (Map.Entry<Integer, Integer> count : countsOfProduct.entrySet()) {
-            if (!result.isBlank()) result += "\t\t\t\t\t\t\t";
+            if (!result.isBlank()) result += " ".repeat(28);
             result +=  count.getKey() + " sipariş numarada " + count.getValue() + " tane";
             counter++;
             if (counter < countsOfProduct.size()) result += "\n";

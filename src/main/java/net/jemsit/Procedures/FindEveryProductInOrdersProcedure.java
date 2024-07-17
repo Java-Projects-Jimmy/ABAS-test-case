@@ -21,7 +21,7 @@ public class FindEveryProductInOrdersProcedure extends GroupOrders{
             );
         }
         mapOfCounts.forEach((key,value)->{
-            System.out.println("Mal numarası "+key + " olan mal->"+value);
+            System.out.println("Mal numarası "+key + " olan mal=>"+value);
         });
 
     }

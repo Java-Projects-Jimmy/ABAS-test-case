@@ -13,7 +13,25 @@ public class Main {
         String csvFile = "data.csv";
 
 
-        try (FileReader reader = new FileReader(csvFile)) {
+        try {
+            for (int i = 0; i < args.length; i++) {
+                switch (args[i]) {
+                    case "--data":
+                        if (i + 1 < args.length) {
+                            csvFile = args[i + 1];
+                            i++;
+                        } else {
+                            System.err.println("Error: --config requires a file path");
+                            return;
+                        }
+                        break;
+                    default:
+                        System.err.println("Unknown argument: " + args[i]);
+                        return;
+                }
+            }
+            FileReader reader = new FileReader(csvFile);
+
             CsvToBean<OrderPojo> csvToBean = new CsvToBeanBuilder<OrderPojo>(reader)
                     .withType(OrderPojo.class)
                     .withIgnoreLeadingWhiteSpace(true)
